@@ -13,6 +13,7 @@ public class WKWebViewURLHander : OAuthWebViewController, WKNavigationDelegate {
 
     var targetURL : URL?
     var webView : WKWebView!
+    var indicator: UIActivityIndicatorView!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,38 @@ public class WKWebViewURLHander : OAuthWebViewController, WKNavigationDelegate {
         webView = WKWebView(frame: view.bounds, configuration: config)
         webView.navigationDelegate = self
         webView.load(URLRequest(url: targetURL!))
+        
+        indicator = UIActivityIndicatorView()
+        indicator.hidesWhenStopped = true;
+        indicator.center = view.center;
+        indicator.activityIndicatorViewStyle = .gray
+        
         view.addSubview(webView)
+        view.addSubview(indicator)
+        
+        webView.addObserver(self, forKeyPath:  #keyPath(WKWebView.loading), options: .new, context: nil)
+    }
+    
+    deinit {
+        webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.loading))
+    }
+    
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let keyPath = keyPath else { return }
+        guard let change = change else { return }
+        switch keyPath {
+        case #keyPath(WKWebView.loading):
+            let val = self.webView.isLoading
+            UIApplication.shared.isNetworkActivityIndicatorVisible = val
+            if val {
+                indicator.startAnimating()
+            } else {
+                indicator.stopAnimating()
+            }
+            break;
+            
+            default:break
+        }
     }
     
     override public func handle(_ url: URL) {
@@ -39,5 +71,4 @@ public class WKWebViewURLHander : OAuthWebViewController, WKNavigationDelegate {
         }
         
     }
-    
 }
