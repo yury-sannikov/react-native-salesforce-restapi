@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "630053AC1E268CB500E0905B"
-               BuildableName = "libRNSFOAuth.a"
+               BlueprintIdentifier = "630053D11E2697DD00E0905B"
+               BuildableName = "RNSFOAuth.framework"
                BlueprintName = "RNSFOAuth"
                ReferencedContainer = "container:RNSFOAuth.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "630053DA1E2697DE00E0905B"
+               BuildableName = "RNSFOAuthTests.xctest"
+               BlueprintName = "RNSFOAuthTests"
+               ReferencedContainer = "container:RNSFOAuth.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "630053D11E2697DD00E0905B"
+            BuildableName = "RNSFOAuth.framework"
+            BlueprintName = "RNSFOAuth"
+            ReferencedContainer = "container:RNSFOAuth.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -45,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "630053AC1E268CB500E0905B"
-            BuildableName = "libRNSFOAuth.a"
+            BlueprintIdentifier = "630053D11E2697DD00E0905B"
+            BuildableName = "RNSFOAuth.framework"
             BlueprintName = "RNSFOAuth"
             ReferencedContainer = "container:RNSFOAuth.xcodeproj">
          </BuildableReference>
@@ -63,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "630053AC1E268CB500E0905B"
-            BuildableName = "libRNSFOAuth.a"
+            BlueprintIdentifier = "630053D11E2697DD00E0905B"
+            BuildableName = "RNSFOAuth.framework"
             BlueprintName = "RNSFOAuth"
             ReferencedContainer = "container:RNSFOAuth.xcodeproj">
          </BuildableReference>

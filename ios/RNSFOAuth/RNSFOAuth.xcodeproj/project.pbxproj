@@ -7,75 +7,121 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630053B21E268CB500E0905B /* RNSFOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 630053B11E268CB500E0905B /* RNSFOAuth.m */; };
-		630053B31E268CB500E0905B /* RNSFOAuth.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 630053B01E268CB500E0905B /* RNSFOAuth.h */; };
+		630053DC1E2697DE00E0905B /* RNSFOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630053D21E2697DD00E0905B /* RNSFOAuth.framework */; };
+		630053E11E2697DE00E0905B /* RNSFOAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630053E01E2697DE00E0905B /* RNSFOAuthTests.swift */; };
+		630053E31E2697DE00E0905B /* RNSFOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 630053D51E2697DD00E0905B /* RNSFOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		630053ED1E26984B00E0905B /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630053EC1E26984B00E0905B /* OAuthManager.swift */; };
+		630053F51E2699AF00E0905B /* RNSFOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 630053F31E2699AF00E0905B /* RNSFOAuth.m */; };
+		630053FC1E26CD1C00E0905B /* OAuthSwift in Resources */ = {isa = PBXBuildFile; fileRef = 630053FB1E26CD1C00E0905B /* OAuthSwift */; };
+		630054001E26D2CB00E0905B /* WKWebViewURLHander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630053FF1E26D2CB00E0905B /* WKWebViewURLHander.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		630053AB1E268CB500E0905B /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				630053B31E268CB500E0905B /* RNSFOAuth.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXContainerItemProxy section */
+		630053DD1E2697DE00E0905B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 630053C91E2697DD00E0905B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 630053D11E2697DD00E0905B;
+			remoteInfo = RNSFOAuth;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		630053AD1E268CB500E0905B /* libRNSFOAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNSFOAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		630053B01E268CB500E0905B /* RNSFOAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSFOAuth.h; sourceTree = "<group>"; };
-		630053B11E268CB500E0905B /* RNSFOAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSFOAuth.m; sourceTree = "<group>"; };
+		630053D21E2697DD00E0905B /* RNSFOAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNSFOAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		630053D51E2697DD00E0905B /* RNSFOAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSFOAuth.h; sourceTree = "<group>"; };
+		630053D61E2697DD00E0905B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		630053DB1E2697DE00E0905B /* RNSFOAuthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNSFOAuthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		630053E01E2697DE00E0905B /* RNSFOAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSFOAuthTests.swift; sourceTree = "<group>"; };
+		630053E21E2697DE00E0905B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		630053EC1E26984B00E0905B /* OAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
+		630053F31E2699AF00E0905B /* RNSFOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSFOAuth.m; sourceTree = "<group>"; };
+		630053FB1E26CD1C00E0905B /* OAuthSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OAuthSwift; sourceTree = "<group>"; };
+		630053FF1E26D2CB00E0905B /* WKWebViewURLHander.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewURLHander.swift; sourceTree = "<group>"; };
+		630054011E27C77D00E0905B /* RNSFOAuth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNSFOAuth-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		630053AA1E268CB500E0905B /* Frameworks */ = {
+		630053CE1E2697DD00E0905B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		630053D81E2697DE00E0905B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630053DC1E2697DE00E0905B /* RNSFOAuth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		630053A41E268CB500E0905B = {
+		630053C81E2697DD00E0905B = {
 			isa = PBXGroup;
 			children = (
-				630053AF1E268CB500E0905B /* RNSFOAuth */,
-				630053AE1E268CB500E0905B /* Products */,
+				630053D41E2697DD00E0905B /* RNSFOAuth */,
+				630053DF1E2697DE00E0905B /* RNSFOAuthTests */,
+				630053D31E2697DD00E0905B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		630053AE1E268CB500E0905B /* Products */ = {
+		630053D31E2697DD00E0905B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				630053AD1E268CB500E0905B /* libRNSFOAuth.a */,
+				630053D21E2697DD00E0905B /* RNSFOAuth.framework */,
+				630053DB1E2697DE00E0905B /* RNSFOAuthTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		630053AF1E268CB500E0905B /* RNSFOAuth */ = {
+		630053D41E2697DD00E0905B /* RNSFOAuth */ = {
 			isa = PBXGroup;
 			children = (
-				630053B01E268CB500E0905B /* RNSFOAuth.h */,
-				630053B11E268CB500E0905B /* RNSFOAuth.m */,
+				630053FF1E26D2CB00E0905B /* WKWebViewURLHander.swift */,
+				630053FB1E26CD1C00E0905B /* OAuthSwift */,
+				630053D51E2697DD00E0905B /* RNSFOAuth.h */,
+				630053D61E2697DD00E0905B /* Info.plist */,
+				630053EC1E26984B00E0905B /* OAuthManager.swift */,
+				630053F31E2699AF00E0905B /* RNSFOAuth.m */,
+				630054011E27C77D00E0905B /* RNSFOAuth-Bridging-Header.h */,
 			);
 			path = RNSFOAuth;
 			sourceTree = "<group>";
 		};
+		630053DF1E2697DE00E0905B /* RNSFOAuthTests */ = {
+			isa = PBXGroup;
+			children = (
+				630053E01E2697DE00E0905B /* RNSFOAuthTests.swift */,
+				630053E21E2697DE00E0905B /* Info.plist */,
+			);
+			path = RNSFOAuthTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		630053CF1E2697DD00E0905B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630053E31E2697DE00E0905B /* RNSFOAuth.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		630053AC1E268CB500E0905B /* RNSFOAuth */ = {
+		630053D11E2697DD00E0905B /* RNSFOAuth */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 630053B61E268CB500E0905B /* Build configuration list for PBXNativeTarget "RNSFOAuth" */;
+			buildConfigurationList = 630053E61E2697DE00E0905B /* Build configuration list for PBXNativeTarget "RNSFOAuth" */;
 			buildPhases = (
-				630053A91E268CB500E0905B /* Sources */,
-				630053AA1E268CB500E0905B /* Frameworks */,
-				630053AB1E268CB500E0905B /* CopyFiles */,
+				630053CD1E2697DD00E0905B /* Sources */,
+				630053CE1E2697DD00E0905B /* Frameworks */,
+				630053CF1E2697DD00E0905B /* Headers */,
+				630053D01E2697DD00E0905B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -83,55 +129,117 @@
 			);
 			name = RNSFOAuth;
 			productName = RNSFOAuth;
-			productReference = 630053AD1E268CB500E0905B /* libRNSFOAuth.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 630053D21E2697DD00E0905B /* RNSFOAuth.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		630053DA1E2697DE00E0905B /* RNSFOAuthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 630053E91E2697DE00E0905B /* Build configuration list for PBXNativeTarget "RNSFOAuthTests" */;
+			buildPhases = (
+				630053D71E2697DE00E0905B /* Sources */,
+				630053D81E2697DE00E0905B /* Frameworks */,
+				630053D91E2697DE00E0905B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				630053DE1E2697DE00E0905B /* PBXTargetDependency */,
+			);
+			name = RNSFOAuthTests;
+			productName = RNSFOAuthTests;
+			productReference = 630053DB1E2697DE00E0905B /* RNSFOAuthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		630053A51E268CB500E0905B /* Project object */ = {
+		630053C91E2697DD00E0905B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Fonteva;
 				TargetAttributes = {
-					630053AC1E268CB500E0905B = {
+					630053D11E2697DD00E0905B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = DLH95HS4VU;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					630053DA1E2697DE00E0905B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = DLH95HS4VU;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 630053A81E268CB500E0905B /* Build configuration list for PBXProject "RNSFOAuth" */;
+			buildConfigurationList = 630053CC1E2697DD00E0905B /* Build configuration list for PBXProject "RNSFOAuth" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 630053A41E268CB500E0905B;
-			productRefGroup = 630053AE1E268CB500E0905B /* Products */;
+			mainGroup = 630053C81E2697DD00E0905B;
+			productRefGroup = 630053D31E2697DD00E0905B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				630053AC1E268CB500E0905B /* RNSFOAuth */,
+				630053D11E2697DD00E0905B /* RNSFOAuth */,
+				630053DA1E2697DE00E0905B /* RNSFOAuthTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		630053D01E2697DD00E0905B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630053FC1E26CD1C00E0905B /* OAuthSwift in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		630053D91E2697DE00E0905B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		630053A91E268CB500E0905B /* Sources */ = {
+		630053CD1E2697DD00E0905B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				630053B21E268CB500E0905B /* RNSFOAuth.m in Sources */,
+				630053F51E2699AF00E0905B /* RNSFOAuth.m in Sources */,
+				630054001E26D2CB00E0905B /* WKWebViewURLHander.swift in Sources */,
+				630053ED1E26984B00E0905B /* OAuthManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		630053D71E2697DE00E0905B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630053E11E2697DE00E0905B /* RNSFOAuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		630053DE1E2697DE00E0905B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 630053D11E2697DD00E0905B /* RNSFOAuth */;
+			targetProxy = 630053DD1E2697DE00E0905B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		630053B41E268CB500E0905B /* Debug */ = {
+		630053E41E2697DE00E0905B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -154,6 +262,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -175,10 +284,15 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		630053B51E268CB500E0905B /* Release */ = {
+		630053E51E2697DE00E0905B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -201,6 +315,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -215,51 +330,112 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		630053B71E268CB500E0905B /* Debug */ = {
+		630053E71E2697DE00E0905B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DLH95HS4VU;
-				OTHER_LDFLAGS = "-ObjC";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RNSFOAuth/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fonteva.RNSFOAuth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNSFOAuth-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		630053B81E268CB500E0905B /* Release */ = {
+		630053E81E2697DE00E0905B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DLH95HS4VU;
-				OTHER_LDFLAGS = "-ObjC";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RNSFOAuth/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fonteva.RNSFOAuth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNSFOAuth-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		630053EA1E2697DE00E0905B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DLH95HS4VU;
+				INFOPLIST_FILE = RNSFOAuthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fonteva.RNSFOAuthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		630053EB1E2697DE00E0905B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DLH95HS4VU;
+				INFOPLIST_FILE = RNSFOAuthTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fonteva.RNSFOAuthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		630053A81E268CB500E0905B /* Build configuration list for PBXProject "RNSFOAuth" */ = {
+		630053CC1E2697DD00E0905B /* Build configuration list for PBXProject "RNSFOAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				630053B41E268CB500E0905B /* Debug */,
-				630053B51E268CB500E0905B /* Release */,
+				630053E41E2697DE00E0905B /* Debug */,
+				630053E51E2697DE00E0905B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		630053B61E268CB500E0905B /* Build configuration list for PBXNativeTarget "RNSFOAuth" */ = {
+		630053E61E2697DE00E0905B /* Build configuration list for PBXNativeTarget "RNSFOAuth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				630053B71E268CB500E0905B /* Debug */,
-				630053B81E268CB500E0905B /* Release */,
+				630053E71E2697DE00E0905B /* Debug */,
+				630053E81E2697DE00E0905B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		630053E91E2697DE00E0905B /* Build configuration list for PBXNativeTarget "RNSFOAuthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630053EA1E2697DE00E0905B /* Debug */,
+				630053EB1E2697DE00E0905B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 630053A51E268CB500E0905B /* Project object */;
+	rootObject = 630053C91E2697DD00E0905B /* Project object */;
 }

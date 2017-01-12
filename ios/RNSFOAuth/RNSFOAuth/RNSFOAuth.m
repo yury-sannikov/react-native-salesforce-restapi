@@ -1,5 +1,5 @@
 //
-//  RNSFOAuth.m
+//  ViewController.m
 //  RNSFOAuth
 //
 //  Created by Yuri Sanikov on 1/11/17.
@@ -7,7 +7,10 @@
 //
 
 #import "RNSFOAuth.h"
+#import "RCTBridgeModule.h"
 
-@implementation RNSFOAuth
+@interface RCT_EXTERN_MODULE(OAuthManager, NSObject)
 
+RCT_EXTERN_METHOD(loginUser:(NSString *)name options:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 @end

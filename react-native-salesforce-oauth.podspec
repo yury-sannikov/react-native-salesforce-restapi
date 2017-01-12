@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name          = "react-native-salesforce-oauth"
   s.version       = "0.1.0"
-  s.source_files  = "ios/*.{h,m}"
+  s.source_files  = "ios/RNSFOAuth/RNSFOAuth/*.{h,m,swift}", "ios/RNSFOAuth/RNSFOAuth/OAuthSwift/*.{h,m,swift}"
   s.platform      = :ios, "8.0"
   s.authors       = { "Yuriy Sannikov" => "yury.sannikov@gmail.com" }
   s.license       = "MIT"

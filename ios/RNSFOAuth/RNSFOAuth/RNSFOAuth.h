@@ -6,8 +6,14 @@
 //  Copyright © 2017 Fonteva. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface RNSFOAuth : NSObject
+//! Project version number for RNSFOAuth.
+FOUNDATION_EXPORT double RNSFOAuthVersionNumber;
 
-@end
+//! Project version string for RNSFOAuth.
+FOUNDATION_EXPORT const unsigned char RNSFOAuthVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <RNSFOAuth/PublicHeader.h>
+
+
