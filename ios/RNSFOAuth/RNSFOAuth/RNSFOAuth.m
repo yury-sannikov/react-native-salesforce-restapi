@@ -11,6 +11,6 @@
 
 @interface RCT_EXTERN_MODULE(OAuthManager, NSObject)
 
-RCT_EXTERN_METHOD(loginUser:(NSString *)name options:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)resolve
+RCT_EXTERN_METHOD(loginUser:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 @end
