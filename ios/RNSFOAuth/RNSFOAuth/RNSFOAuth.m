@@ -6,7 +6,6 @@
 //  Copyright © 2017 Fonteva. All rights reserved.
 //
 
-#import "RNSFOAuth.h"
 #import "RCTBridgeModule.h"
 
 @interface RCT_EXTERN_MODULE(OAuthManager, NSObject)
