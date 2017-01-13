@@ -27,6 +27,7 @@ export class SalesforceApiRequest {
             return credentials;
         }
         catch(error) {
+            await AsyncStorage.removeItem(STORAGE_KEY)
         }
 
         const credentials = await this.loginUser(parameters);
