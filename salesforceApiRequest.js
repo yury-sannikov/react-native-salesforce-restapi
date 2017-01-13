@@ -33,7 +33,7 @@ export class SalesforceApiRequest {
 	async post(parameters, url, body) {
 		const credentials = await this.getCredentials(parameters);
 
-        const doFetch = () => fetch(`${credentials.instance_url}/${url}`, {
+        const doFetch = () => fetch(`${credentials.instance_url}${url}`, {
             method: 'post', 
                 headers: {
                     'Authorization': `Bearer ${credentials.access_token}`, 
@@ -43,24 +43,29 @@ export class SalesforceApiRequest {
                 body: JSON.stringify(body)
             });
 
-        const processResponse = (response) => {
+        const processResponse = async (response) => {
             if (response.ok) {
-                return response.json();
+                return {
+                    json: await response.json(),
+                    status: response.status,
+                    response: response
+                };
             }
             throw response;
         }
 
-        return doFetch().then((response) => {
-            if (response.status === HTTP_UNAUTHORIZED) {
-                return this.refreshToken(credentials).then(() => {
-                    return doFetch().then(processResponse);
-                })
-            }
-            return processResponse(response)
-        })
+        const response = await doFetch();
+
+        if (response.status === HTTP_UNAUTHORIZED) {
+            await this.refreshToken(credentials)
+
+            return await doFetch().then(processResponse);
+        }
+
+        return processResponse(response)
 	}
 
-    refreshToken(credentials) {
+    async refreshToken(credentials) {
         //TODO:
     }
 
