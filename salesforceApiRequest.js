@@ -40,7 +40,7 @@ export class SalesforceApiRequest {
     }
 
 	async post(parameters, url, body) {
-        const fetchAction = (cred) => fetch(`${cred.instance_url}${url}`, {
+        const fetchAction = (cred) => fetch(`${cred.instance_url}/services/apexrest/${parameters.namespace}${url}`, {
             method: 'post', 
                 headers: {
                     'Authorization': `Bearer ${cred.access_token}`, 
