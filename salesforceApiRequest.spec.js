@@ -241,9 +241,76 @@ describe('Salesforce API', () => {
 				response: fetchRefreshResponse
 			});
 			expect(fetchAction).toHaveBeenCalledTimes(2);
-
 		});
+	});
+	describe('refreshToken call', () => {
+		it('should return credentials with new access_token', async () => {
+			
+			const instance = new SalesforceApiRequest();
+
+			const parameters = {
+				consumerKey: 'consumerKey',
+				consumerSecret: 'consumerSecret'
+			}
+
+			const credentials = {
+				refresh_token: 'refresh_token',
+				access_token: 'access_token'
+			}
+
+			const fetchResponse = {
+            	json: () => new Promise( (resolve) => {resolve({access_token: 'new_token'})}),
+                status: 200,
+                response: 'ok',
+                ok: true			
+			}
+			global.fetch.mockReturnValueOnce(new Promise( (resolve) => {resolve(fetchResponse)}));
+
+			const result = await instance.refreshToken(parameters, credentials);
+
+			expect(result).toEqual({ refresh_token: 'refresh_token', access_token: 'new_token' });
+
+			expect(global.fetch.mock.calls[0][0]).toBe('https://login.salesforce.com/services/oauth2/token');
+			expect(global.fetch.mock.calls[0][1]).toEqual({
+				credentials: 'include',
+				method: 'post',
+				headers: {
+					Authorization: 'Bearer access_token',
+					Accept: 'application/json',
+					'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+				},
+				body: 'grant_type=refresh_token&refresh_token=refresh_token&client_id=consumerKey&client_secret=consumerSecret'
+			});
+		})
+		it('should throw if response is not ok', async () => {
+			
+			const instance = new SalesforceApiRequest();
+
+			const parameters = {
+				consumerKey: 'consumerKey',
+				consumerSecret: 'consumerSecret'
+			}
+
+			const credentials = {
+				refresh_token: 'refresh_token',
+				access_token: 'access_token'
+			}
+
+			const fetchResponse = {
+            	json: () => new Promise( (resolve) => {resolve({access_token: 'new_token'})}),
+                status: 200,
+                response: 'ok',
+                ok: false			
+			}
+			global.fetch.mockReturnValueOnce(new Promise( (resolve) => {resolve(fetchResponse)}));
+
+			try {
+				await instance.refreshToken(parameters, credentials);
+				expect('should throw').toBe('did not throw');
+			} catch(e) {
+				expect(e).toEqual(fetchResponse);
+			}
+		});		
 
 	});
-
 })
