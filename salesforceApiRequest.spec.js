@@ -125,6 +125,125 @@ describe('Salesforce API', () => {
 			});
 		});
 	});
+	
+	describe('apiCall call', () => {
+		it('should process normal response', async () => {
 
+			const getItemResult = {
+				issued_at: Date.now(),
+				instance_url: 'sfinstance',
+				access_token: 'accesstoken'
+			};
+
+			AsyncStorage.getItem.mockReturnValueOnce(JSON.stringify(getItemResult));
+
+			const instance = new SalesforceApiRequest();
+
+			const parameters = {namespace: 'Framework'}
+			const url = '/eventapi';
+
+			const fetchResponse = {
+            	json: () => new Promise( (resolve) => {resolve({response: 'success'})}),
+                status: 200,
+                response: '',
+                ok: true				
+			};
+
+			const fetchAction = jest.fn();
+			fetchAction.mockReturnValueOnce(new Promise( (resolve) => {resolve(fetchResponse)}));
+
+			const result = await instance.apiCall(fetchAction, parameters, url);
+
+			expect(AsyncStorage.getItem).toHaveBeenCalled();
+			expect(fetchAction).toHaveBeenCalled();
+			expect(result).toEqual({
+				json: { response: 'success' },
+				status: 200,
+				response: fetchResponse
+			});
+
+			expect(fetchAction).toHaveBeenCalledWith(getItemResult);
+		});
+		it('should process error response', async () => {
+
+			const getItemResult = {
+				issued_at: Date.now(),
+				instance_url: 'sfinstance',
+				access_token: 'accesstoken'
+			};
+
+			AsyncStorage.getItem.mockReturnValueOnce(JSON.stringify(getItemResult));
+
+			const instance = new SalesforceApiRequest();
+
+			const parameters = {namespace: 'Framework'}
+			const url = '/eventapi';
+
+			const fetchResponse = {
+            	json: () => new Promise( (resolve) => {resolve({response: 'failure'})}),
+                status: 500,
+                response: '',
+                ok: false			
+			};
+
+			const fetchAction = jest.fn();
+			fetchAction.mockReturnValueOnce(new Promise( (resolve) => {resolve(fetchResponse)}));
+
+			try {
+				await instance.apiCall(fetchAction, parameters, url);
+				expect('should throw').toBe('did not throw');
+			} catch(e) {
+				expect(e).toEqual(fetchResponse);
+			}
+		});
+		it('should failover from unauthorized response', async () => {
+
+			const getItemResult = {
+				issued_at: Date.now(),
+				instance_url: 'sfinstance',
+				access_token: 'accesstoken'
+			};
+
+			AsyncStorage.getItem.mockReturnValueOnce(JSON.stringify(getItemResult));
+
+			const instance = new SalesforceApiRequest();
+
+			instance.refreshToken = jest.fn();
+			instance.refreshToken.mockReturnValueOnce(getItemResult);
+
+			const parameters = {namespace: 'Framework'}
+			const url = '/eventapi';
+
+			const fetchResponse = {
+            	json: () => new Promise( (resolve) => {resolve({response: 'failure'})}),
+                status: 401,
+                response: 'unauthorized',
+                ok: false			
+			};
+			const fetchRefreshResponse = {
+            	json: () => new Promise( (resolve) => {resolve({response: 'success'})}),
+                status: 200,
+                response: 'ok',
+                ok: true			
+			};
+
+
+			const fetchAction = jest.fn();
+			fetchAction.mockReturnValueOnce(new Promise( (resolve) => {resolve(fetchResponse)}))
+				.mockReturnValueOnce(new Promise( (resolve) => {resolve(fetchRefreshResponse)}));
+
+
+			const result = await instance.apiCall(fetchAction, parameters, url);
+
+			expect(result).toEqual({
+				json: { response: 'success' },
+				status: 200,
+				response: fetchRefreshResponse
+			});
+			expect(fetchAction).toHaveBeenCalledTimes(2);
+
+		});
+
+	});
 
 })
