@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "prepublish": "babel *.js --out-file lib/index.js --source-maps inline --ignore *.spec.js"
+    "prepublish": "babel *.js --out-dir lib --source-maps inline --ignore *.spec.js"
   },
   "main": "lib/index.js",
   "devDependencies": {
