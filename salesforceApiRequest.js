@@ -1,8 +1,8 @@
 const HTTP_UNAUTHORIZED = 401
 
-const STORAGE_KEY = '@SalesforceApiRequest:Credentials'
+export const STORAGE_KEY = '@SalesforceApiRequest:Credentials'
 
-const STORAGE_EXPIRE_SPAN = 1000 * 60 * 60 * 24
+export const STORAGE_EXPIRE_SPAN = 1000 * 60 * 60 * 24
 
 const OAUTH_REFRESH_TOKEN_GRANT_TYPE = 'refresh_token'
 const OAUTH_SALESFORCE_LOGIN_URL = 'https://login.salesforce.com/services/oauth2/token'
@@ -50,10 +50,10 @@ export class SalesforceApiRequest {
                 body: JSON.stringify(body)
             });
 
-        return await this.apiCall(fetchAction, parameters, url, body)
+        return await this.apiCall(fetchAction, parameters, url)
     }
 
-    async apiCall(fetchAction, parameters, url, body) {
+    async apiCall(fetchAction, parameters, url) {
 		const credentials = await this.getCredentials(parameters);
 
         const processResponse = async (response) => {
