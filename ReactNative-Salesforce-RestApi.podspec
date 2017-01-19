@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name          = "ReactNative-Salesforce-RestApi"
+  s.name          = "react-native-salesforce-restapi"
   s.version       = "0.1.0"
   s.source_files  = "ios/RNSFOAuth/RNSFOAuth/*.{h,m,swift}", "ios/RNSFOAuth/RNSFOAuth/OAuthSwift/*.{h,m,swift}"
   s.platform      = :ios, "8.0"
