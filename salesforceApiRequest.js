@@ -16,7 +16,28 @@ export class SalesforceApiRequest {
 		this.loginUser = loginUser;
 	}
 
+    async isLoggedIn() {
+        let credentials = await this.getStoredCredentials();
+        return credentials != null;
+    }
+
+    async logOut() {
+        await AsyncStorage.removeItem(STORAGE_KEY)
+    }
+
     async getCredentials(parameters) {
+        let credentials = await this.getStoredCredentials();
+        
+        if (credentials) {
+            return credentials;
+        }
+
+        credentials = await this.loginUser(parameters);
+        await this.setCredentials(credentials);
+        return credentials;
+    }
+
+    async getStoredCredentials(parameters) {
         try {
             const credentials = JSON.parse(await AsyncStorage.getItem(STORAGE_KEY));
 
@@ -27,14 +48,11 @@ export class SalesforceApiRequest {
             return credentials;
         }
         catch(error) {
-            await AsyncStorage.removeItem(STORAGE_KEY)
+            await this.logOut();
         }
-
-        const credentials = await this.loginUser(parameters);
-        await this.setCredentials(credentials);
-        return credentials;
+        return null;
     }
-
+    
     async setCredentials(credentials) {
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(credentials))
     }
@@ -81,7 +99,7 @@ export class SalesforceApiRequest {
     async refreshToken(parameters, credentials) {
         // Remove expired credentials. In case of success refresh new credentials will be stored
         // In case of error next call to the API will force login screen to appear
-        await AsyncStorage.removeItem(STORAGE_KEY)
+        await this.logOut();
 
         const refreshParams = {
             grant_type: OAUTH_REFRESH_TOKEN_GRANT_TYPE,

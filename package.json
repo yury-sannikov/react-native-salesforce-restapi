@@ -29,7 +29,8 @@
       "**/*.{js}",
       "!**/node_modules/**",
       "!**/index.js",
-      "!coverage/**/*"
+      "!coverage/**/*",
+      "!lib/**/*"
     ]
   }
 }

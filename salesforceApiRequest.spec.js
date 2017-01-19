@@ -26,6 +26,23 @@ describe('Salesforce API', () => {
 		const instance = new SalesforceApiRequest(loginUserInstance);
 		expect(instance.loginUser).toBe(loginUserInstance);
 	})
+	describe('isLoggedIn call', () => {
+
+		it('should return true if logged in', async () => {
+			const getItemResult = { issued_at: Date.now()};
+			const instance = new SalesforceApiRequest(null);
+
+			AsyncStorage.getItem.mockReturnValueOnce(JSON.stringify(getItemResult));
+			const loggedIn = await instance.isLoggedIn();
+			expect(loggedIn).toBeTruthy();
+		});
+		it('should return false if not logged in', async () => {
+			const instance = new SalesforceApiRequest(null);
+			AsyncStorage.getItem.mockReturnValueOnce(null);
+			const loggedIn = await instance.isLoggedIn();
+			expect(loggedIn).toBeFalsy();
+		});
+	});
 
 	describe('getCredentials call', () => {
 
