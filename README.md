@@ -1,5 +1,6 @@
-
 # react-native-salesforce-restapi
+
+Simple react-native REST API implementation with Salesforce OAuth2 login/refresh token functionality.
 
 ## Getting started
 
@@ -18,6 +19,11 @@
 2. Go to `node_modules` ➜ `react-native-salesforce-restapi` and add `RNSalesforceRestapi.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNSalesforceRestapi.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
+
+#### iOS Cocoapods
+
+1. Add `pod 'react-native-salesforce-restapi', path: '../node_modules/react-native-salesforce-restapi'` to your Podfile
+2. Do `pod install`
 
 #### Android
 
@@ -44,10 +50,23 @@
 
 
 ## Usage
-```javascript
-import RNSalesforceRestapi from 'react-native-salesforce-restapi';
 
-// TODO: What do with the module?
-RNSalesforceRestapi;
+```javascript
+import SalesforceRestApi from 'react-native-salesforce-restapi'
+
+const SALESFORCE_OAUTH_OPTIONS = {
+  consumerKey:    'xxxx',
+  consumerSecret: 'xxx',
+  authorizeUrl:   'https://login.salesforce.com/services/oauth2/authorize',
+  accessTokenUrl: 'https://login.salesforce.com/services/oauth2/token',
+  responseType:   'code',
+  namespace:      'your package namespace'
+}
+
+export class DataRequest {
+    static submit(data, action) {
+        return SalesforceOAuth.ApiRequest.post(SALESFORCE_OAUTH_OPTIONS, '/endpoint', {data})
+    }
+}
+
 ```
-  
