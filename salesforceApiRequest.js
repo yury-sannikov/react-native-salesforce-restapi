@@ -12,8 +12,8 @@ import { AsyncStorage } from 'react-native'
  
 export class SalesforceApiRequest {
 
-	constructor(loginUser) {
-		this.loginUser = loginUser;
+	constructor(nativeMethods) {
+		this.nativeMethods = nativeMethods;
 	}
 
     async isLoggedIn() {
@@ -23,6 +23,7 @@ export class SalesforceApiRequest {
 
     async logOut() {
         await AsyncStorage.removeItem(STORAGE_KEY)
+        await this.nativeMethods.logout()
     }
 
     async getCredentials(parameters) {
@@ -32,7 +33,7 @@ export class SalesforceApiRequest {
             return credentials;
         }
 
-        credentials = await this.loginUser(parameters);
+        credentials = await this.nativeMethods.loginUser(parameters);
         await this.setCredentials(credentials);
         return credentials;
     }

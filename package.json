@@ -7,7 +7,6 @@
     "test": "jest",
     "prepublish": "babel *.js --out-dir lib --source-maps inline --ignore *.spec.js"
   },
-  "main": "lib/index.js",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-jest": "^18.0.0",
@@ -32,5 +31,8 @@
       "!coverage/**/*",
       "!lib/**/*"
     ]
+  },
+  "dependencies": {
+    "url-parse": "^1.1.7"
   }
 }
