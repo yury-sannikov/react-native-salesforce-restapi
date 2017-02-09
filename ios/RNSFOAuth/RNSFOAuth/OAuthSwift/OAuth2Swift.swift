@@ -108,6 +108,12 @@ open class OAuth2Swift: OAuthSwift {
                 }
             }
             else if let error = responseParameters["error"] {
+                
+                if (error == String(reflecting: OAuthSwiftError.cancelled)) {
+                    failure?(OAuthSwiftError.cancelled)
+                    return
+                }
+                
                 let description = responseParameters["error_description"] ?? ""
                 let message = NSLocalizedString(error, comment: description)
                 failure?(OAuthSwiftError.serverError(message: message))

@@ -9,7 +9,28 @@
 import Foundation
 import WebKit
 
-public class WKWebViewURLHander : OAuthWebViewController, WKNavigationDelegate {
+public class WKWebViewURLHander : UINavigationController, OAuthSwiftURLHandlerType, WKNavigationDelegate {
+    
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    public func handle(_ url: URL) {
+
+        OAuthSwift.main { [unowned self] in
+            let ctl = WKWebViewController()
+            ctl.targetURL = url
+            ctl.title = "Login"
+            self.pushViewController(ctl, animated: true)
+
+            UIApplication.topViewController?.present(self, animated: true, completion: {
+            })
+        }
+    }
+
+}
+
+public class WKWebViewController : OAuthWebViewController, WKNavigationDelegate {
 
     var targetURL : URL?
     var webView : WKWebView!
@@ -17,6 +38,11 @@ public class WKWebViewURLHander : OAuthWebViewController, WKNavigationDelegate {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        let closeButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(closeTapped))
+        navigationItem.leftBarButtonItem = closeButton
+
+        
         let config = WKWebViewConfiguration();
         webView = WKWebView(frame: view.bounds, configuration: config)
         webView.navigationDelegate = self
@@ -54,7 +80,6 @@ public class WKWebViewURLHander : OAuthWebViewController, WKNavigationDelegate {
             default:break
         }
     }
-    
     override public func handle(_ url: URL) {
         targetURL = url
         super.handle(url)
@@ -65,10 +90,15 @@ public class WKWebViewURLHander : OAuthWebViewController, WKNavigationDelegate {
         if let url = navigationAction.request.url, url.scheme == "oauth-swift" {
             decisionHandler(WKNavigationActionPolicy.cancel)
             OAuthSwift.handle(url: url)
-            self.dismissWebViewController()
+            UIApplication.topViewController?.dismiss(animated: true, completion: nil)
         } else {
             decisionHandler(WKNavigationActionPolicy.allow)
         }
-        
     }
+
+    func closeTapped() {
+        OAuthSwift.handle(url: URL(string: "oauth-swift://oauth-callback/cancelled?error=cancelled")!)
+        UIApplication.topViewController?.dismiss(animated: true, completion: nil)
+    }
+
 }

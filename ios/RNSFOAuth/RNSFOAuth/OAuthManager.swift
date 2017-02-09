@@ -13,6 +13,7 @@ struct Constants {
     static let OAUTH_CALLBACK_URL = "oauth-swift://oauth-callback/salesforce"
     static let OAUTH_SCOPES : String = "api refresh_token"
     static let OAUTH_LOGIN_ERROR : String = "login_error"
+    static let OAUTH_LOGIN_CANCELLED : String = "login_canceled"
 }
 
 @objc(OAuthManager)
@@ -57,7 +58,11 @@ class OAuthManager: NSObject {
             guard me.oauthswift != nil else { return; }
             
             print(err.localizedDescription)
-            rejecter(Constants.OAUTH_LOGIN_ERROR, err.localizedDescription, err)
+            if (err.errorCode == OAuthSwiftError.cancelled._code) {
+                rejecter(Constants.OAUTH_LOGIN_CANCELLED, err.localizedDescription, err)
+            } else {
+                rejecter(Constants.OAUTH_LOGIN_ERROR, err.localizedDescription, err)
+            }
             me.oauthswift = nil
         }
     }
