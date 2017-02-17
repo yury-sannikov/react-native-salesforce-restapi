@@ -29,6 +29,7 @@ public class RNSalesforceRestapiModule extends ReactContextBaseJavaModule implem
   public static final int ACTIVITY_RESPONSE_CODE_CANCEL = 102;
 
   private static final int ACTIVITY_REQUEST_CODE = 100;
+  private static final String ACTIVITY_RESPONSE_REJECT_CANCEL = "login_canceled";
 
   private final ReactApplicationContext reactContext;
   private Promise tokenPromise = null;
@@ -91,7 +92,11 @@ public class RNSalesforceRestapiModule extends ReactContextBaseJavaModule implem
     }
 
     if (resultCode != ACTIVITY_RESPONSE_CODE) {
-      tokenPromise.reject(String.valueOf(resultCode), "Rejected");
+      if (resultCode == ACTIVITY_RESPONSE_CODE_CANCEL) {
+        tokenPromise.reject(ACTIVITY_RESPONSE_REJECT_CANCEL, "Rejected");
+      } else {
+        tokenPromise.reject(String.valueOf(resultCode), "Rejected");
+      }
     } else {
       tokenPromise.resolve(data.getData().toString());
     }
